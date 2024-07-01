@@ -12,7 +12,7 @@ export default function MarqueeTextComp(){
       gradient={true}
       gradientWidth={100}
       >
-        Cornell • UPenn • UChicago • Princeton • UIUC • USC • UBC • Brown • Harvey Mudd • Kenyon • NYU 
+        Cornell • UPenn • UChicago • Princeton • UIUC • USC • UBC • Brown • Harvey Mudd • Kenyon • NYU • 
       </Marquee>
     </h1>
     </div>
