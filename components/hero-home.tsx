@@ -39,7 +39,7 @@ export default function HeroHome() {
           console.error("Error adding document: ", e);
         }
 
-        document.getElementById("success")!.innerHTML="submitted! we'll notify you once we're live :)";
+        document.getElementById("success")!.innerHTML="submitted! we'll notify you once we're live :) ";
     }
   
 
