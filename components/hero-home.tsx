@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import PageIllustration from "@/components/page-illustration";
 import Avatar01 from "@/public/images/avatar-01.jpg";
@@ -7,9 +9,42 @@ import Avatar04 from "@/public/images/avatar-04.jpg";
 import Avatar05 from "@/public/images/avatar-05.jpg";
 import Avatar06 from "@/public/images/avatar-06.jpg";
 import MarqueeText from "react-marquee-text";
+import { ref, uploadBytes } from "firebase/storage";
+import { db } from "./firebase_config";
+import { useState, useEffect } from "react";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
+
 
 export default function HeroHome() {
+  const [email, setEmail] = useState("");
+
+   
+    const addEmail = async (e:any) => {
+        e.preventDefault();
+        
+        
+        try {
+          const docRef = await addDoc(collection(db, "waitlisted"), {
+            email: email,    
+          });
+          console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+          console.error("Error adding document: ", e);
+        }
+
+        document.getElementById("success").innerHTML="submitted! we'll notify you once we're live :)";
+    }
+  
+
   return (
+    
     <section className="relative">
       <PageIllustration />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -48,13 +83,15 @@ export default function HeroHome() {
                   <input
                     placeholder="scholaisfun@gmail.com"
                     type="email"
+                    onChange={(e)=>setEmail(e.target.value)}
                     className="peer h-12 w-full rounded-lg outline-none drop-shadow-sm transition-all duration-200 ease-in-out focus:bg-white focus:ring-2 focus:ring-green-400"
                   />
-                  <span className="absolute block pt-1 text-xs font-semibold text-gray-500 opacity-0 transition-all duration-200 ease-in-out group-focus-within:opacity-100">
-                    we'll notify you once we're live :)
+                  <span id="success" className="absolute block pt-1 text-xs font-semibold text-gray-500 opacity-100 transition-all duration-200 ease-in-out group-focus-within:opacity-100">
+                    
                     </span>
                 </div>
-                <button className="btn h-12 rounded-lg bg-green-600 px-6 text-white shadow hover:bg-green-700">
+                
+                <button onClick={addEmail} type="submit" className="btn h-12 rounded-lg bg-green-600 px-6 text-white shadow hover:bg-green-700">
                   Submit
                 </button>
               </div>
