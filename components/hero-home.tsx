@@ -91,7 +91,7 @@ export default function HeroHome() {
                     </span>
                 </div>
                 
-                <button onClick={addEmail} type="submit" className="btn h-12 rounded-lg bg-green-600 px-6 text-white shadow hover:bg-green-700">
+                <button onClick={addEmail} type="submit" className=" z-50 btn h-12 rounded-lg bg-green-600 px-6 text-white shadow hover:bg-green-700">
                   Submit
                 </button>
               </div>
