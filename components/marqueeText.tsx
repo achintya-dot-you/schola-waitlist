@@ -10,9 +10,9 @@ export default function MarqueeTextComp(){
       pauseOnHover={true}
       speed={100}
       gradient={true}
-      gradientWidth={100}
+      gradientWidth={50}
       >
-        Cornell • UPenn • UChicago • Princeton • UIUC • USC • UBC • Brown • Harvey Mudd • Kenyon • NYU • 
+        Cornell • UPenn • UChicago • Princeton • UIUC • USC • UBC • Brown • Harvey Mudd • Kenyon • NYU • &nbsp;
       </Marquee>
     </h1>
     </div>
